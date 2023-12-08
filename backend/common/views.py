@@ -4,13 +4,11 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
-<<<<<<< HEAD
 
 
 class IndexView(generic.TemplateView):
     template_name = "common/index.html"
 
-=======
 from .plang import PLangProgram
 from .models import PirdataModel
 from .serializers import PirdataModelSerializer  # Create a serializer for model
@@ -31,28 +29,24 @@ class PirServerView(generic.TemplateView):
 
 class PirClientView(generic.TemplateView):
     template_name = 'common/pir_client.html'
->>>>>>> b8f188b (增加PIR相关应用)
 
 class RestViewSet(viewsets.ViewSet):
     @action(
         detail=False,
-<<<<<<< HEAD
         methods=["get"],
         permission_classes=[AllowAny],
         url_path="rest-check",
-=======
+
         methods=['get'],
         permission_classes=[AllowAny],
         url_path='rest-check',
->>>>>>> b8f188b (增加PIR相关应用)
     )
     def rest_check(self, request):
         return Response(
             {"result": "If you're seeing this, the REST API is working!"},
             status=status.HTTP_200_OK,
         )
-<<<<<<< HEAD
-=======
+
 
 class ModelViewSet(viewsets.ViewSet):
     def _get_model_format(self):
@@ -238,4 +232,3 @@ class PirdataModelViewSet(viewsets.ViewSet):
     #         })},
     #         status=status.HTTP_200_OK,
     #     )
->>>>>>> b8f188b (增加PIR相关应用)
