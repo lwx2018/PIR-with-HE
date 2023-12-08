@@ -1,10 +1,7 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
-<<<<<<< HEAD
 from django.utils.translation import gettext_lazy as _
-=======
 from django.utils.translation import ugettext_lazy as _
->>>>>>> b8f188b (增加PIR相关应用)
 
 from common.models import IndexedTimeStampedModel
 
@@ -14,11 +11,8 @@ from .managers import UserManager
 class User(AbstractBaseUser, PermissionsMixin, IndexedTimeStampedModel):
     email = models.EmailField(max_length=255, unique=True)
     is_staff = models.BooleanField(
-<<<<<<< HEAD
         default=False, help_text=_("Designates whether the user can log into this admin site.")
-=======
         default=False, help_text=_("Designates whether the user can log into this admin " "site.")
->>>>>>> b8f188b (增加PIR相关应用)
     )
     is_active = models.BooleanField(
         default=True,
