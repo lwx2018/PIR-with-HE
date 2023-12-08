@@ -1,9 +1,6 @@
 from django.db import models
-<<<<<<< HEAD
 from django.utils.translation import gettext_lazy as _
-=======
 from django.utils.translation import ugettext_lazy as _
->>>>>>> b8f188b (增加PIR相关应用)
 
 from model_utils.fields import AutoCreatedField, AutoLastModifiedField
 
@@ -14,8 +11,7 @@ class IndexedTimeStampedModel(models.Model):
 
     class Meta:
         abstract = True
-<<<<<<< HEAD
-=======
+
 
 
 
@@ -27,4 +23,3 @@ class PirdataModel(models.Model):
     hold_date = models.DateField(verbose_name='持有日期')
     amount = models.DecimalField(max_digits=18, decimal_places=5, verbose_name='数量')
     value = models.DecimalField(max_digits=15, decimal_places=2, verbose_name='金额')
->>>>>>> b8f188b (增加PIR相关应用)
