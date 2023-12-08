@@ -6,6 +6,7 @@ clean:
 	@find . -name "__pycache__" -delete
 
 test:
+<<<<<<< HEAD
 	poetry run backend/manage.py test backend/ $(ARG) --parallel --keepdb
 
 test_reset:
@@ -17,6 +18,37 @@ backend_format:
 # Commands for Docker version
 docker_setup:
 	docker volume create {{project_name}}_dbdata
+=======
+	python backend/manage.py test backend/ $(ARG) --parallel --keepdb
+
+test_reset:
+	python backend/manage.py test backend/ $(ARG) --parallel
+
+backend_format:
+	black backend
+
+upgrade: ## update the *requirements.txt files with the latest packages satisfying *requirements.in
+	pip install -U -q pip-tools
+	pip-compile --upgrade -o dev-requirements.txt dev-requirements.in
+	pip-compile --upgrade -o requirements.txt requirements.in
+	# Make everything =>, not ==
+	sed 's/==/>=/g' requirements.txt > requirements.tmp
+	mv requirements.tmp requirements.txt
+
+compile_install_requirements:
+	@echo 'Installing pip-tools...'
+	export PIP_REQUIRE_VIRTUALENV=true; \
+	pip install pip-tools
+	@echo 'Compiling requirements...'
+	pip-compile requirements.in > requirements.txt
+	pip-compile dev-requirements.in > dev-requirements.txt
+	@echo 'Installing requirements...'
+	pip install -r requirements.txt && pip install -r dev-requirements.txt
+
+# Commands for Docker version
+docker_setup:
+	docker volume create privacy_computing_demo_dbdata
+>>>>>>> b8f188b (增加PIR相关应用)
 	docker-compose build --no-cache backend
 	docker-compose run frontend npm install
 

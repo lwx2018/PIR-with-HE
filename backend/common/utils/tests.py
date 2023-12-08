@@ -15,6 +15,7 @@ class TestCaseUtils(TestCase):
         self.auth_client.login(email=self.user.email, password=self._user_password)
 
     def reverse(self, name, *args, **kwargs):
+<<<<<<< HEAD
         """Reverse a url, convenience to avoid having to import reverse in tests"""
         return reverse(name, args=args, kwargs=kwargs)
 
@@ -48,6 +49,41 @@ class TestCaseUtils(TestCase):
 
     def assertResponse404(self, response):
         """Given response has status_code 404 NOT FOUND"""
+=======
+        """ Reverse a url, convenience to avoid having to import reverse in tests """
+        return reverse(name, args=args, kwargs=kwargs)
+
+    def assertResponse200(self, response):
+        """ Given response has status_code 200 OK"""
+        self.assertEqual(response.status_code, 200)
+
+    def assertResponse201(self, response):
+        """ Given response has status_code 201 CREATED"""
+        self.assertEqual(response.status_code, 201)
+
+    def assertResponse301(self, response):
+        """ Given response has status_code 301 MOVED PERMANENTLY"""
+        self.assertEqual(response.status_code, 301)
+
+    def assertResponse302(self, response):
+        """ Given response has status_code 302 FOUND"""
+        self.assertEqual(response.status_code, 302)
+
+    def assertResponse400(self, response):
+        """ Given response has status_code 400 BAD REQUEST"""
+        self.assertEqual(response.status_code, 400)
+
+    def assertResponse401(self, response):
+        """ Given response has status_code 401 UNAUTHORIZED"""
+        self.assertEqual(response.status_code, 401)
+
+    def assertResponse403(self, response):
+        """ Given response has status_code 403 FORBIDDEN"""
+        self.assertEqual(response.status_code, 403)
+
+    def assertResponse404(self, response):
+        """ Given response has status_code 404 NOT FOUND"""
+>>>>>>> b8f188b (增加PIR相关应用)
         self.assertEqual(response.status_code, 404)
 
 

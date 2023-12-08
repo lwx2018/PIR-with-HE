@@ -22,7 +22,11 @@ def restart_celery():
         celery_proc = proc  # found parent celery process
         celery_proc.terminate()
         break
+<<<<<<< HEAD
     cmd = "celery worker -A {{project_name}} -l INFO"
+=======
+    cmd = "celery worker -A privacy_computing_demo -l INFO"
+>>>>>>> b8f188b (增加PIR相关应用)
     psutil.Popen(shlex.split(cmd), stdout=PIPE)
 
 

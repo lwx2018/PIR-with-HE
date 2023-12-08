@@ -2,7 +2,11 @@
 /backend/db.sqlite3
 .DS_Store
 .env
+<<<<<<< HEAD
 **/settings/local.py
+=======
+*/settings/local.py
+>>>>>>> b8f188b (增加PIR相关应用)
 /staticfiles/*
 /mediafiles/*
 __pycache__/
@@ -32,7 +36,11 @@ npm-debug.log
 *.map
 
 # General
+<<<<<<< HEAD
 /{{project_name}}-venv/
+=======
+/privacy-computing-demo-venv/
+>>>>>>> b8f188b (增加PIR相关应用)
 /venv/
 /env/
 /output/
@@ -49,3 +57,8 @@ tmp_email/
 .direnv
 .envrc
 .tool-versions
+<<<<<<< HEAD
+=======
+
+backend/compiled.*
+>>>>>>> b8f188b (增加PIR相关应用)

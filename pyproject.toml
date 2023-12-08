@@ -15,6 +15,7 @@ exclude = '''
   | [a-z_]+/migrations
 )/
 '''
+<<<<<<< HEAD
 
 [tool.bandit]
 exclude_dirs = ["*/test_*.py", "*/tests.py", "tests", "./venv/", "./env/", "./node_modules/", "./cacheback/", "./.env", "./.venv"]
@@ -81,3 +82,5 @@ prospector = {extras = ["with-vulture"], version = "^1.10.2"}
 [build-system]
 requires = ["poetry-core>=1.2.0"]
 build-backend = "poetry.core.masonry.api"
+=======
+>>>>>>> b8f188b (增加PIR相关应用)

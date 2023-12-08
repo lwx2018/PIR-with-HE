@@ -13,9 +13,15 @@ if __name__ == "__main__":
         if settings_module:
             print(
                 "Ignoring config('DJANGO_SETTINGS_MODULE') because it's test. "
+<<<<<<< HEAD
                 "Using '{{project_name}}.settings.test'"
             )
         os.environ.setdefault("DJANGO_SETTINGS_MODULE", "{{project_name}}.settings.test")
+=======
+                "Using 'privacy_computing_demo.settings.test'"
+            )
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "privacy_computing_demo.settings.test")
+>>>>>>> b8f188b (增加PIR相关应用)
     else:
         if settings_module is None:
             print(

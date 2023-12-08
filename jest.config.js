@@ -16,10 +16,19 @@ module.exports = {
     'frontend/js',
     'frontend/js/app',
   ],
+<<<<<<< HEAD
   setupFilesAfterEnv: [
     './jest-setup.js',
   ],
   testEnvironment: 'jsdom',
+=======
+  snapshotSerializers: [
+    'enzyme-to-json/serializer',
+  ],
+  setupFiles: [
+    './jest-setup.js',
+  ],
+>>>>>>> b8f188b (增加PIR相关应用)
   collectCoverageFrom: [
     'frontend/js/**/*.{js,jsx}',
   ],

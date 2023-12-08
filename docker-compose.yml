@@ -1,12 +1,22 @@
+<<<<<<< HEAD
 version: '3.5'
+=======
+version: '3.1'
+>>>>>>> b8f188b (增加PIR相关应用)
 
 services:
   db:
     image: "postgres:alpine"
     environment:
+<<<<<<< HEAD
       - POSTGRES_USER={{project_name}}
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB={{project_name}}
+=======
+      - POSTGRES_USER=privacy_computing_demo
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=privacy_computing_demo
+>>>>>>> b8f188b (增加PIR相关应用)
     ports:
       - "5432"
     volumes:
@@ -49,7 +59,11 @@ services:
       context: .
     command: python manage.py celery
     volumes:
+<<<<<<< HEAD
       - ./:/home/user/app/
+=======
+      - ./backend/:/home/user/app/
+>>>>>>> b8f188b (增加PIR相关应用)
     env_file: backend/.env
     depends_on:
       - db
@@ -64,5 +78,10 @@ services:
 
 volumes:
   dbdata:
+<<<<<<< HEAD
     name: {{project_name}}_dbdata
     external: true
+=======
+    external:
+      name: privacy_computing_demo_dbdata
+>>>>>>> b8f188b (增加PIR相关应用)

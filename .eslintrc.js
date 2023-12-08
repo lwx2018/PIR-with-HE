@@ -5,7 +5,10 @@ module.exports = {
   extends: ['vinta/recommended'],
   rules: {
     "default-param-last": "off",
+<<<<<<< HEAD
     "@babel/camelcase": "off"
+=======
+>>>>>>> b8f188b (增加PIR相关应用)
   },
   env: {
     es6: true,
