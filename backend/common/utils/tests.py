@@ -15,7 +15,6 @@ class TestCaseUtils(TestCase):
         self.auth_client.login(email=self.user.email, password=self._user_password)
 
     def reverse(self, name, *args, **kwargs):
-<<<<<<< HEAD
         """Reverse a url, convenience to avoid having to import reverse in tests"""
         return reverse(name, args=args, kwargs=kwargs)
 
@@ -49,7 +48,6 @@ class TestCaseUtils(TestCase):
 
     def assertResponse404(self, response):
         """Given response has status_code 404 NOT FOUND"""
-=======
         """ Reverse a url, convenience to avoid having to import reverse in tests """
         return reverse(name, args=args, kwargs=kwargs)
 
@@ -83,7 +81,6 @@ class TestCaseUtils(TestCase):
 
     def assertResponse404(self, response):
         """ Given response has status_code 404 NOT FOUND"""
->>>>>>> b8f188b (增加PIR相关应用)
         self.assertEqual(response.status_code, 404)
 
 
