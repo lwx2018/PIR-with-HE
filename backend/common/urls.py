@@ -2,12 +2,10 @@ from django.urls import path
 
 from . import views
 
-<<<<<<< HEAD
 app_name = "common"
 urlpatterns = [
     path("", views.IndexView.as_view(), name="index"),
 ]
-=======
 app_name = 'common'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
@@ -16,4 +14,3 @@ urlpatterns = [
     path('pir_server', views.PirServerView.as_view(), name='pir_server'),
     path('pir_client', views.PirClientView.as_view(), name='pir_client'),
 ]
->>>>>>> b8f188b (增加PIR相关应用)
