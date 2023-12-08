@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 FROM python:3.11-slim
 
 ENV PYTHONFAULTHANDLER=1 \
@@ -29,7 +28,6 @@ COPY backend/ /home/user/app/backend
 
 USER user
 CMD gunicorn {{project_name}}.wsgi --log-file - -b 0.0.0.0:8000 --reload
-=======
 FROM python:3.8-slim
 
 ENV PYTHONUNBUFFERED 1
@@ -58,4 +56,3 @@ ADD backend/ /home/user/app/backend
 
 USER user
 CMD gunicorn privacy_computing_demo.wsgi --log-file - -b 0.0.0.0:8000 --reload
->>>>>>> b8f188b (增加PIR相关应用)
