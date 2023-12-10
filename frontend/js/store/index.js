@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { configureStore } from '@reduxjs/toolkit';
 
 import { rootReducer } from './reducers';
@@ -12,7 +11,6 @@ const configureReduxStore = (preloadedState) => {
 };
 
 export default configureReduxStore;
-=======
 import { routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import { createStore, applyMiddleware } from 'redux';
@@ -33,4 +31,3 @@ const configureStore = (preloadedState) => {
 };
 
 export default configureStore;
->>>>>>> b8f188b (增加PIR相关应用)
