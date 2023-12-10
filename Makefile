@@ -6,7 +6,6 @@ clean:
 	@find . -name "__pycache__" -delete
 
 test:
-<<<<<<< HEAD
 	poetry run backend/manage.py test backend/ $(ARG) --parallel --keepdb
 
 test_reset:
@@ -18,7 +17,6 @@ backend_format:
 # Commands for Docker version
 docker_setup:
 	docker volume create {{project_name}}_dbdata
-=======
 	python backend/manage.py test backend/ $(ARG) --parallel --keepdb
 
 test_reset:
@@ -48,7 +46,6 @@ compile_install_requirements:
 # Commands for Docker version
 docker_setup:
 	docker volume create privacy_computing_demo_dbdata
->>>>>>> b8f188b (增加PIR相关应用)
 	docker-compose build --no-cache backend
 	docker-compose run frontend npm install
 
