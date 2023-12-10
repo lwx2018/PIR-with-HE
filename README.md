@@ -1,23 +1,17 @@
-<<<<<<< HEAD
 # Django React Boilerplate
-=======
 # Privacy Computing Demo
->>>>>>> b8f188b (增加PIR相关应用)
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](code_of_conduct.md)
 [![License: MIT](https://img.shields.io/github/license/vintasoftware/django-react-boilerplate.svg)](LICENSE.txt)
 
 ## About
-<<<<<<< HEAD
 A [Django](https://www.djangoproject.com/) project boilerplate/template with a multitude of state-of-the-art libraries and tools. If pairing Django with React is a possibility for your project or spinoff, this is the best solution available. Save time with tools like:
 - [React](https://facebook.github.io/react/), for building interactive UIs
 - [Poetry](https://python-poetry.org/), for managing the environment and its dependencies
 - [django-js-reverse](https://github.com/vintasoftware/django-js-reverse), for generating URLs on JS
-=======
 A [Django](https://www.djangoproject.com/) project boilerplate/template with lots of state of the art libraries and tools like:
 - [React](https://facebook.github.io/react/), for building interactive UIs
 - [django-js-reverse](https://github.com/ierror/django-js-reverse), for generating URLs on JS
->>>>>>> b8f188b (增加PIR相关应用)
 - [React Bootstrap](https://react-bootstrap.github.io/), for responsive styling
 - [Webpack](https://webpack.js.org/), for bundling static assets
 - [Celery](https://docs.celeryproject.org/), for background worker tasks
@@ -26,7 +20,6 @@ A [Django](https://www.djangoproject.com/) project boilerplate/template with lot
 
 For continuous integration, a [Github Action](https://github.com/features/actions) configuration `.github/workflows/main.yml` is included.
 
-<<<<<<< HEAD
 Also, includes a Render.com `render.yaml` and a working Django `production.py` settings, enabling easy deployments with ['Deploy to Render' button](https://render.com/docs/deploy-to-render). The `render.yaml` includes the following:
 - PostgreSQL, for DB
 - Redis, for Celery
@@ -76,7 +69,6 @@ Send us an email at contact@vintasoftware.com telling us a bit more about how ou
 
 ## Project bootstrap [![main](https://github.com/chocoelho/django-react-boilerplate/actions/workflows/main.yml/badge.svg)](https://github.com/chocoelho/django-react-boilerplate/actions/workflows/main.yml) [![Known Vulnerabilities](https://snyk.io/test/github/vintasoftware/django-react-boilerplate/badge.svg)](https://snyk.io/test/github/vintasoftware/django-react-boilerplate)
 - [ ] Make sure you have Python 3.11 installed
-=======
 Also, includes a Heroku `app.json` and a working Django `production.py` settings, enabling easy deployments with ['Deploy to Heroku' button](https://devcenter.heroku.com/articles/heroku-button). Those Heroku plugins are included in `app.json`:
 - PostgreSQL, for DB
 - Redis, for Celery
@@ -87,36 +79,29 @@ This is a good starting point for modern Python/JavaScript web projects.
 
 ## Project bootstrap [![main](https://github.com/chocoelho/django-react-boilerplate/actions/workflows/main.yml/badge.svg)](https://github.com/chocoelho/django-react-boilerplate/actions/workflows/main.yml) [![Greenkeeper badge](https://badges.greenkeeper.io/vintasoftware/django-react-boilerplate.svg)](https://greenkeeper.io/)
 - [ ] Make sure you have Python 3.8 installed
->>>>>>> b8f188b (增加PIR相关应用)
 - [ ] Install Django with `pip install django`, to have the `django-admin` command available.
 - [ ] Open the command line and go to the directory you want to start your project in.
 - [ ] Start your project using:
     ```
-<<<<<<< HEAD
     django-admin startproject theprojectname --extension py,yml,json --name Procfile,Dockerfile,docker-compose.yml,README.md,.env.example,.gitignore,Makefile,render.yaml --template=https://github.com/vintasoftware/django-react-boilerplate/archive/boilerplate-release.zip
     ```
     Alternatively, you may start the project in the current directory by placing a `.` right after the project name, using the following command:
     ```
     django-admin startproject theprojectname . --extension py,yml,json --name Procfile,Dockerfile,docker-compose.yml,README.md,.env.example,.gitignore,Makefile,render.yaml --template=https://github.com/vintasoftware/django-react-boilerplate/archive/boilerplate-release.zip
-=======
     django-admin startproject theprojectname --extension py,yml,json --name Procfile,Dockerfile,README.md,.env.example,.gitignore,Makefile --template=https://github.com/vintasoftware/django-react-boilerplate/archive/boilerplate-release.zip
     ```
     Alternatively, you may start the project in the current directory by placing a `.` right after the project name, using the following command:
     ```
     django-admin startproject theprojectname . --extension py,yml,json --name Procfile,Dockerfile,README.md,.env.example,.gitignore,Makefile --template=https://github.com/vintasoftware/django-react-boilerplate/archive/boilerplate-release.zip
->>>>>>> b8f188b (增加PIR相关应用)
     ```
 In the next steps, always remember to replace theprojectname with your project's name
 - [ ] Above: don't forget the `--extension` and `--name` params!
 - [ ] Change the first line of README to the name of the project
-<<<<<<< HEAD
 - [ ] Add an email address to the `ADMINS` settings variable in `{{project_name}}/backend/{{project_name}}/settings/base.py`
 - [ ] Change the `SERVER_EMAIL` to the email address used to send e-mails in `{{project_name}}/backend/{{project_name}}/settings/production.py`
-=======
 - [ ] Add an email address to the `ADMINS` settings variable in `privacy_computing_demo/backend/privacy_computing_demo/settings/base.py`
 - [ ] Change the `SERVER_EMAIL` to the email address used to send e-mails in `privacy_computing_demo/backend/privacy_computing_demo/settings/production.py`
 - [ ] Rename the folder `github` to `.github` with the command `mv github .github`
->>>>>>> b8f188b (增加PIR相关应用)
 
 After completing ALL of the above, remove this `Project bootstrap` section from the project README. Then follow `Running` below.
 
@@ -126,22 +111,16 @@ After completing ALL of the above, remove this `Project bootstrap` section from 
 
 ### Setup
 - Inside the `backend` folder, do the following:
-<<<<<<< HEAD
   - Create a copy of `{{project_name}}/settings/local.py.example`:  
   `cp {{project_name}}/settings/local.py.example {{project_name}}/settings/local.py`
-=======
   - Create a copy of `privacy_computing_demo/settings/local.py.example`:  
   `cp privacy_computing_demo/settings/local.py.example privacy_computing_demo/settings/local.py`
->>>>>>> b8f188b (增加PIR相关应用)
   - Create a copy of `.env.example`:
   `cp .env.example .env`
 
 ### If you are using Docker:
-<<<<<<< HEAD
 - Open the `/backend/.env` file on a text editor and uncomment the line `DATABASE_URL=postgres://{{project_name}}:password@db:5432/{{project_name}}`
-=======
 - Open the `/backend/.env` file on a text editor and uncomment the line `DATABASE_URL=postgres://privacy_computing_demo:password@db:5432/privacy_computing_demo`
->>>>>>> b8f188b (增加PIR相关应用)
 - Open a new command line window and go to the project's directory
 - Run the initial setup:
   `make docker_setup`
@@ -165,13 +144,10 @@ After completing ALL of the above, remove this `Project bootstrap` section from 
 - Update the dependencies management files by performing any number of the following steps:
   - To add a new **frontend** dependency, run `npm install <package name> --save`
     > The above command will update your `package.json`, but won't make the change effective inside the container yet
-<<<<<<< HEAD
   - To add a new **backend** dependency, run `docker compose run backend --rm bash` to open an interactive shell and then run `poetry add {dependency}` to add the dependency. If the dependency should be only available for development user append `-G dev` to the command.
   - After updating the desired file(s), run `make docker_update_dependencies` to update the containers with the new dependencies
-=======
   - To add a new **backend** dependency, update `requirements.in` or `dev-requirements.in` with the newest requirements
 - After updating the desired file(s), run `make docker_update_dependencies` to update the containers with the new dependencies
->>>>>>> b8f188b (增加PIR相关应用)
   > The above command will stop and re-build the containers in order to make the new dependencies effective
 
 ### If you are not using Docker:
@@ -184,18 +160,13 @@ After completing ALL of the above, remove this `Project bootstrap` section from 
 #### Setup the backend app
 - Open the `/backend/.env` file on a text editor and do one of the following:
   - If you wish to use SQLite locally, uncomment the line `DATABASE_URL=sqlite:///backend/db.sqlite3`
-<<<<<<< HEAD
   - If you wish to use PostgreSQL locally, uncomment and edit the line `DATABASE_URL=postgres://{{project_name}}:password@db:5432/{{project_name}}` in order to make it correctly point to your database URL
-=======
   - If you wish to use PostgreSQL locally, uncomment and edit the line `DATABASE_URL=postgres://privacy_computing_demo:password@db:5432/privacy_computing_demo` in order to make it correctly point to your database URL
->>>>>>> b8f188b (增加PIR相关应用)
     - The url format is the following: `postgres://USER:PASSWORD@HOST:PORT/NAME`
   - If you wish to use another database engine locally, add a new `DATABASE_URL` setting for the database you wish to use
     - Please refer to [dj-database-url](https://github.com/jacobian/dj-database-url#url-schema) on how to configure `DATABASE_URL` for commonly used engines
 - Open a new command line window and go to the project's directory
-<<<<<<< HEAD
 - run `poetry install`
-=======
 - Create a new virtualenv with either [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) or only virtualenv: `mkvirtualenv privacy_computing_demo` or `python -m venv privacy_computing_demo-venv`
   > If you're using Python's virtualenv (the latter option), make sure to create the environment with the suggested name, otherwise it will be added to version control.
 - Make sure the virtualenv is activated `workon privacy_computing_demo` or `source privacy_computing_demo-venv/bin/activate`
@@ -203,12 +174,10 @@ After completing ALL of the above, remove this `Project bootstrap` section from 
   > Please make sure you have already setup PostgreSQL on your environment before installing the requirements
 
   > In case you wish to use a Conda virtual environment, please remove the line `export PIP_REQUIRE_VIRTUALENV=true; \` from `Makefile`
->>>>>>> b8f188b (增加PIR相关应用)
 
 #### Run the backend app
 - With the virtualenv enabled, go to the `backend` directory
 - Create the migrations for `users` app: 
-<<<<<<< HEAD
   `poetry run python manage.py makemigrations`
 - Run the migrations:
   `poetry run python manage.py migrate`
@@ -218,7 +187,6 @@ After completing ALL of the above, remove this `Project bootstrap` section from 
 
 #### Setup Celery
 - `poetry run python manage.py celery`
-=======
   `python manage.py makemigrations`
 - Run the migrations:
   `python manage.py migrate`
@@ -230,7 +198,6 @@ After completing ALL of the above, remove this `Project bootstrap` section from 
 - Open a command line window and go to the project's directory
 - `workon privacy_computing_demo` or `source privacy_computing_demo-venv/bin/activate` depending on if you are using virtualenvwrapper or just virtualenv.
 - `python manage.py celery`
->>>>>>> b8f188b (增加PIR相关应用)
 
 #### Mailhog
 - For development, we use Mailhog to test our e-mail workflows, since it allows us to inspect the messages to validate they're correctly built
@@ -247,7 +214,6 @@ Will run django tests using `--keepdb` and `--parallel`. You may pass a path to 
 `make test someapp.tests.test_views`
 
 ### Adding new pypi libs
-<<<<<<< HEAD
 To add a new **backend** dependency, run `poetry add {dependency}`. If the dependency should be only available for development user append `-G dev` to the command. 
 
 ## Github Actions
@@ -292,7 +258,6 @@ These variables are required for your application to work on Render.com since it
 ### Sentry
 
 [Sentry](https://sentry.io) is already set up on the project. For production, add `SENTRY_DSN` environment variable on Render.com, with your Sentry DSN as the value.
-=======
 Add the libname to either `requirements.in` or `dev-requirements.in`, then either upgrade the libs with `make upgrade` or manually compile it and then,  install.
 `pip-compile requirements.in > requirements.txt` or `make upgrade`
 `pip install -r requirements.txt`
@@ -316,21 +281,17 @@ Remember to fill the `ALLOWED_HOSTS` with the URL of your app, the default on he
 ### Sentry
 
 [Sentry](https://sentry.io) is already set up on the project. For production, add `SENTRY_DSN` environment variable on Heroku, with your Sentry DSN as the value.
->>>>>>> b8f188b (增加PIR相关应用)
 
 You can test your Sentry configuration by deploying the boilerplate with the sample page and clicking on the corresponding button.
 
 ### Sentry source maps for JS files
 
-<<<<<<< HEAD
 The `render_build.sh` script has a step to push Javascript source maps to Sentry, however some environment variables need to be set on Render.com.
-=======
 The `bin/post_compile` script has a step to push Javascript source maps to Sentry, however some environment variables need to be set on Heroku.
 
 You need to enable Heroku dyno metadata on your Heroku App. Use the following command on Heroku CLI:
 
 - `heroku labs:enable runtime-dyno-metadata -a <app name>`
->>>>>>> b8f188b (增加PIR相关应用)
 
 The environment variables that need to be set are:
 
@@ -338,7 +299,6 @@ The environment variables that need to be set are:
 - `SENTRY_PROJECT_NAME` - Name of the Sentry Project.
 - `SENTRY_API_KEY` - Sentry API key that needs to be generated on Sentry. [You can find or create authentication tokens within Sentry](https://sentry.io/api/).
 
-<<<<<<< HEAD
 After enabling dyno metadata and setting the environment variables, your next Render.com Deploys will create a release on Sentry where the release name is the commit SHA, and it will push the source maps to it.
 
 ## Linting
@@ -347,7 +307,6 @@ After enabling dyno metadata and setting the environment variables, your next Re
 
 ## Pre-commit hooks
 - Run `poetry run pre-commit install` to enable the hook into your git repo. The hook will run automatically for each commit.
-=======
 After enabling dyno metadata and setting the environment variables, your next Heroku Deploys will create a release on Sentry where the release name is the commit SHA, and it will push the source maps to it.
 
 ## Linting
@@ -356,7 +315,6 @@ After enabling dyno metadata and setting the environment variables, your next He
 
 ## Pre-commit hooks
 - Run `pre-commit install` to enable the hook into your git repo. The hook will run automatically for each commit.
->>>>>>> b8f188b (增加PIR相关应用)
 - Run `git commit -m "Your message" -n` to skip the hook if you need.
 
 ## Opinionated Settings
@@ -365,8 +323,6 @@ Some settings defaults were decided based on Vinta's experiences. Here's the rat
 ### `CELERY_ACKS_LATE = True`
 We believe Celery tasks should be idempotent. So for us it's safe to set `CELERY_ACKS_LATE = True` to ensure tasks will be re-queued after a worker failure. Check Celery docs on ["Should I use retry or acks_late?"](https://docs.celeryproject.org/en/latest/faq.html#should-i-use-retry-or-acks-late) for more info.
 
-<<<<<<< HEAD
-=======
 ## Features Catalogue
 
 ### Frontend
@@ -406,7 +362,6 @@ We believe Celery tasks should be idempotent. So for us it's safe to set `CELERY
 - `django-debreach` for additional protection against BREACH attack
 - `whitenoise` and `brotlipy` for serving static assets
 
->>>>>>> b8f188b (增加PIR相关应用)
 ## Contributing
 
 If you wish to contribute to this project, please first discuss the change you wish to make via an [issue](https://github.com/vintasoftware/django-react-boilerplate/issues).
@@ -416,8 +371,5 @@ Check our [contributing guide](https://github.com/vintasoftware/django-react-boi
 ## Commercial Support
 [![alt text](https://avatars2.githubusercontent.com/u/5529080?s=80&v=4 "Vinta Logo")](https://www.vinta.com.br/)
 
-<<<<<<< HEAD
 This project is maintained by [Vinta Software](https://www.vinta.com.br/) and is used in products of Vinta's clients. We are always looking for exciting work! If you need any commercial support, feel free to get in touch: contact@vinta.com.br
-=======
 This project is maintained by [Vinta Software](https://www.vinta.com.br/) and is used in products of Vinta's clients. We are always looking for exciting work, so if you need any commercial support, feel free to get in touch: contact@vinta.com.br
->>>>>>> b8f188b (增加PIR相关应用)
