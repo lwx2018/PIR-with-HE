@@ -30,19 +30,16 @@ module.exports = {
       },
       {
         test: /\.(svg)(\?v=\d+\.\d+\.\d+)?$/,
-<<<<<<< HEAD
         type: 'asset/inline',
       },
       {
         test: /\.(jpg|png)?$/,
         type: 'asset/resource',
-=======
         loader: 'url-loader?limit=100000',
       },
       {
         test: /\.(jpg|png)?$/,
         loader: ['file-loader?name=i-[hash].[ext]'],
->>>>>>> b8f188b (增加PIR相关应用)
       },
     ],
   },
