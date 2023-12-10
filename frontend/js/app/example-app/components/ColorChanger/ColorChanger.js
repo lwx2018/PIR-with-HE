@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-<<<<<<< HEAD
 import ColorDisplay from './ColorDisplay';
-=======
 import ColorDisplay from '../ColorDisplay';
->>>>>>> b8f188b (增加PIR相关应用)
 
 import './style.scss';
 
@@ -36,15 +33,12 @@ class ColorChanger extends React.Component {
         <p>Check this example app: change the color to see it reflected in the text next to it.</p>
 
         <div className="inner-container">
-<<<<<<< HEAD
           <select
             aria-label="Color Picker"
             className="color-picker"
             onChange={this.handleChangeColor}
           >
-=======
           <select className="color-picker" onChange={this.handleChangeColor}>
->>>>>>> b8f188b (增加PIR相关应用)
             <option value="black">Black</option>
             <option value="green">Green</option>
             <option value="red">Red</option>
