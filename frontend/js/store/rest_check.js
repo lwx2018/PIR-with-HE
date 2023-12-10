@@ -1,15 +1,12 @@
-<<<<<<< HEAD
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import api from './api';
 
-// Thunks
 export const fetchRestCheck = createAsyncThunk('restCheck/fetch', async () => {
   const res = await api.get('/api/rest/rest-check/');
   return res.data;
 });
 
-// Reducer
 export const restCheckReducer = createSlice({
   name: 'restCheck',
   initialState: {},
@@ -34,7 +31,6 @@ export const restCheckReducer = createSlice({
     });
   },
 }).reducer;
-=======
 import api from './api';
 
 // Action types
@@ -64,4 +60,3 @@ export const restCheckReducer = (state = {}, action) => {
   if (action.type === types.FETCH_SUCCESS) return action.data;
   return state;
 };
->>>>>>> b8f188b (增加PIR相关应用)
