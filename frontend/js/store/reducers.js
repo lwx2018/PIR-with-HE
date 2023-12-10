@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { combineReducers } from '@reduxjs/toolkit';
 
 import { restCheckReducer as restCheck } from './rest_check';
@@ -6,7 +5,6 @@ import { restCheckReducer as restCheck } from './rest_check';
 export const rootReducer = combineReducers({
   restCheck,
 });
-=======
 import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
 
@@ -34,4 +32,3 @@ export const createRootReducer = (history) => {
     evaluate,
   });
 };
->>>>>>> b8f188b (增加PIR相关应用)
