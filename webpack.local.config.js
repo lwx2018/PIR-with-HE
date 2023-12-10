@@ -5,7 +5,6 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
 const path = require('path');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-
 const baseConfig = require('./webpack.base.config');
 
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');

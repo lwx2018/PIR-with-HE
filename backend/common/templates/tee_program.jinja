@@ -1,0 +1,89 @@
+import os, json, base64, rsa
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_OAEP
+
+def compile():
+    rsaBits = 2048
+    rsaExp = 65537
+    (pubkey, privkey) = rsa.newkeys(rsaBits, exponent=rsaExp)
+    pk = pubkey.save_pkcs1('PEM').decode()
+    sk = privkey.save_pkcs1('PEM').decode()
+
+    params = {
+        'rsaBits': rsaBits,
+        'rsaExp': rsaExp,
+        'rsaPk': pk
+    }
+
+    with open('compiled.teeparams', 'w') as f:
+        json.dump(params, f)
+    
+    with open('compiled.teesecret', 'w') as f:
+        f.write(sk)
+
+def getParams():
+    with open('compiled.teeparams', 'r') as f:
+        params = json.load(f)
+    return params
+
+def recoverKeys(keys):
+    client_public_key = keys.get('clientPubKey')
+
+    with open('compiled.sealpublic', 'w') as f:
+        f.write(client_public_key)
+
+def recoverEncryptedInputs(encoded_enc_inputs):
+    enc_inputs = base64.b64decode(encoded_enc_inputs)
+
+    with open('compiled.sealinputs', 'wb') as f:
+        f.write(enc_inputs)
+
+def _eval():
+    with open('compiled.teesecret', 'r') as f:
+        sk = f.read()
+
+    with open('compiled.sealinputs', 'rb') as f:
+        enc_inputs = f.read()
+
+    privkey = RSA.import_key(sk)
+    cipher_rsa = PKCS1_OAEP.new(privkey)
+    s = cipher_rsa.decrypt(enc_inputs).decode('utf-8')
+    inputs = json.loads(s)
+
+    {%- for input in program.inputs %}
+    {{ input.name }} = inputs['{{ input.name }}']
+    {%- endfor %}
+    {%- for instruction in program.instructions %}
+    {{ instruction }}
+    {%- endfor %}
+
+    with open('compiled.sealpublic', 'r') as f:
+        client_public_key = f.read()
+
+    client_pubkey = RSA.import_key(client_public_key)
+    client_cipher_rsa = PKCS1_OAEP.new(client_pubkey)
+
+    outputs = json.dumps({ "result": {{ program.output }} }).encode('utf-8')
+    enc_outputs = client_cipher_rsa.encrypt(outputs)
+
+    with open('compiled.sealoutputs', 'wb') as f:
+        f.write(enc_outputs)
+
+    return {{ program.output }}
+
+def eval():
+    cwd = os.getcwd()
+    os.chdir(os.path.dirname(os.path.realpath(__file__)))
+    os.system('gramine-direct ./python compiled.py')
+    os.chdir(cwd)
+
+def getEncodedEncOutputs():
+    with open('compiled.sealoutputs', 'rb') as f:
+        enc_outputs = f.read()
+    
+    encoded_enc_outputs = base64.b64encode(enc_outputs).decode('utf-8')
+
+    return encoded_enc_outputs
+
+if __name__ == '__main__':
+    _eval()

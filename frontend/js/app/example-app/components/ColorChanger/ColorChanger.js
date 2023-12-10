@@ -33,7 +33,7 @@ class ColorChanger extends React.Component {
         <p>Check this example app: change the color to see it reflected in the text next to it.</p>
 
         <div className="inner-container">
-          <select
+          <select 
             aria-label="Color Picker"
             className="color-picker"
             onChange={this.handleChangeColor}

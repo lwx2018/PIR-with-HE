@@ -2,11 +2,13 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import api from './api';
 
+// Thunks
 export const fetchRestCheck = createAsyncThunk('restCheck/fetch', async () => {
   const res = await api.get('/api/rest/rest-check/');
   return res.data;
 });
 
+// Reducer
 export const restCheckReducer = createSlice({
   name: 'restCheck',
   initialState: {},

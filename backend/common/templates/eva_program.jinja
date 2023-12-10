@@ -1,0 +1,128 @@
+from eva import EvaProgram, Input, Output, evaluate, save, load
+from eva.ckks import CKKSCompiler
+from eva.seal import generate_keys, recover_keys
+from eva.std.numeric import horizontal_sum
+import numpy as np
+
+vec_size = 2048
+
+def makeInput(X):
+    x = np.empty(vec_size)
+    x[0] = X
+    return x
+
+def sum(X):
+    return horizontal_sum(X)
+
+def compile():
+    program = EvaProgram('program', vec_size=vec_size)
+    with program:
+        {%- for input in program.inputs %}
+        {{ input.name }} = Input('{{ input.name }}')
+        {%- endfor %}
+        {%- for instruction in program.instructions %}
+        {{ instruction }}
+        {%- endfor %}
+        Output('result', {{ program.output }})
+
+    program.set_input_scales(30)
+    program.set_output_ranges(20)
+
+    compiler = CKKSCompiler()
+    compiled, params, signature = compiler.compile(program)
+
+    save(compiled, 'compiled.eva')
+    save(params, 'compiled.evaparams')
+    save(signature, 'compiled.evasignature')
+
+    return (compiled, params, signature)
+
+def getParams():
+    params = load('compiled.evaparams')
+    return params
+
+def genKeys():
+    params = load('compiled.evaparams')
+    public_ctx, secret_ctx = generate_keys(params)
+
+    save(public_ctx, 'compiled.sealpublic')
+    save(secret_ctx, 'compiled.sealsecret')
+
+    return (public_ctx, secret_ctx)
+
+def recoverKeys(encoded_keys):
+    params = load('compiled.evaparams')
+    poly_modulus_degree = params.poly_modulus_degree
+    prime_bits = params.prime_bits
+
+    encoded_public_key = encoded_keys.get('encodedPublicKey')
+    encoded_galois_keys = encoded_keys.get('encodedGaloisKeys')
+    encoded_relin_Keys = encoded_keys.get('encodedRelinKeys')
+
+    public_ctx = recover_keys(poly_modulus_degree, prime_bits, 
+        encoded_public_key, encoded_galois_keys, encoded_relin_Keys)
+
+    save(public_ctx, 'compiled.sealpublic')
+
+def encInputs(inputs):
+    public_ctx = load('compiled.sealpublic')
+    signature = load('compiled.evasignature')
+
+    enc_inputs = public_ctx.encrypt(inputs, signature)
+
+    save(enc_inputs, 'compiled.sealinputs')
+
+    return enc_inputs
+
+def recoverEncryptedInputs(encoded_enc_inputs):
+    public_ctx = load('compiled.sealpublic')
+    signature = load('compiled.evasignature')
+
+    enc_inputs = public_ctx.recover_encrypted(encoded_enc_inputs, signature)
+
+    save(enc_inputs, 'compiled.sealinputs')
+
+    return enc_inputs
+
+def eval():
+    compiled = load('compiled.eva')
+    public_ctx = load('compiled.sealpublic')
+    enc_inputs = load('compiled.sealinputs')
+
+    enc_outputs = public_ctx.execute(compiled, enc_inputs)
+
+    save(enc_outputs, 'compiled.sealoutputs')
+
+    return enc_outputs
+
+def getEncodedEncOutputs():
+    public_ctx = load('compiled.sealpublic')
+    enc_outputs = load('compiled.sealoutputs')
+
+    encoded_enc_outputs = public_ctx.encode_encrypted(enc_outputs)
+
+    return encoded_enc_outputs
+
+def decOutput():
+    signature = load('compiled.evasignature')
+    secret_ctx = load('compiled.sealsecret')
+    enc_outputs = load('compiled.sealoutputs')
+
+    outputs = secret_ctx.decrypt(enc_outputs, signature)
+    
+    return outputs['result'][0]
+
+if __name__ == '__main__':
+    inputs = {
+        {%- for input in program.inputs %}
+        '{{ input.name }}': makeInput(1.0),
+        {%- endfor %}
+    }
+
+    compile()
+    genKeys()
+    encInputs(inputs)
+    eval()
+    output = decOutput()
+
+    print(output)

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import DjangoImgSrc from '../../assets/images/django-logo-negative.png';
 import { fetchRestCheck } from '../store/rest_check';
-
 import { creators } from '../store/rest_check';
 
 const Home = () => {

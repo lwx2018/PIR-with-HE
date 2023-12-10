@@ -29,6 +29,7 @@ class PirServerView(generic.TemplateView):
 
 class PirClientView(generic.TemplateView):
     template_name = 'common/pir_client.html'
+>>>>>>> b8f188b (增加PIR相关应用)
 
 class RestViewSet(viewsets.ViewSet):
     @action(
@@ -36,7 +37,6 @@ class RestViewSet(viewsets.ViewSet):
         methods=["get"],
         permission_classes=[AllowAny],
         url_path="rest-check",
-
         methods=['get'],
         permission_classes=[AllowAny],
         url_path='rest-check',
@@ -46,7 +46,6 @@ class RestViewSet(viewsets.ViewSet):
             {"result": "If you're seeing this, the REST API is working!"},
             status=status.HTTP_200_OK,
         )
-
 
 class ModelViewSet(viewsets.ViewSet):
     def _get_model_format(self):
