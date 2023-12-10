@@ -1,20 +1,17 @@
 fail_fast: true
 repos:
-<<<<<<< HEAD
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v4.4.0
   hooks:
     - id: check-added-large-files
       args: ['--maxkb=500']
     - id: fix-byte-order-marker
-=======
 - repo: git://github.com/pre-commit/pre-commit-hooks
   rev: v0.9.2
   hooks:
     - id: check-added-large-files
       args: ['--maxkb=500']
     - id: check-byte-order-marker
->>>>>>> b8f188b (增加PIR相关应用)
     - id: check-case-conflict
     - id: check-merge-conflict
     - id: check-symlinks
