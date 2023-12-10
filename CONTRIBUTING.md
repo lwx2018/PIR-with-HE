@@ -15,16 +15,12 @@ If you made changes to this boilerplate and want to test them, do as follows:
 - Run `git archive -o boilerplate.zip HEAD` to create the template zip file
 - Run the following:
   ```bash
-<<<<<<< HEAD
   cd .. && django-admin startproject theprojectname --extension py,yml,json --name Procfile,README.md,.env.example,Dockerfile,docker-compose.yml,Makefile,pyproject.toml,render.yaml --template=django-react-boilerplate/boilerplate.zip
-=======
   cd .. && django-admin startproject theprojectname --extension py,yml,json --name Procfile,README.md,.env.example,Dockerfile --template=django-react-boilerplate/boilerplate.zip
->>>>>>> b8f188b (增加PIR相关应用)
   ```
 - A new folder called `theprojectname` will be created and now you can test your changes
 - Make sure that the project is still running fine with and without docker
 
-<<<<<<< HEAD
 ### Testing Render.com deployment
 
 Push your changes to a branch and visit the link below
@@ -38,7 +34,6 @@ https://render.com/deploy?repo=https://github.com/fill-org-or-user/fill-project-
 Read [this](https://render.com/docs/deploy-to-render).
 
 P.S. if you want to deploy in a different way, please check the `render.yaml` file for what needs to be configured.
-=======
 ### Testing Heroku deployment
 
 Push your changes to a branch and visit the link below
@@ -53,4 +48,3 @@ Read [this](https://devcenter.heroku.com/articles/heroku-button#adding-the-herok
 
 P.S. if you want to deploy in a different way, please check the `app.json` file for what needs to be configured.
 
->>>>>>> b8f188b (增加PIR相关应用)
